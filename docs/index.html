@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="给已经会走棋的初学者。用交互棋盘练习特殊规则、子力取舍、战术、开局和局面判断。">
+  <meta name="theme-color" content="#193c31">
+  <title>棋局课 · 国际象棋入门</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./chess.js"></script>
+  <script defer src="./lessons.js"></script>
+  <script defer src="./advanced.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#lesson">跳到当前课程</a>
+  <div class="shell">
+    <aside class="sidebar" aria-label="课程目录">
+      <a class="brand" href="#rules" aria-label="棋局课，回到第一课"><span aria-hidden="true">♞</span><strong>棋局课<small>国际象棋入门</small></strong></a>
+      <div class="progress-info"><span>练习进度</span><strong id="progress-label">0 / 0</strong></div>
+      <progress id="progress" max="1" value="0" aria-label="练习进度"></progress>
+      <nav id="curriculum" aria-label="课程目录"></nav>
+      <a class="sidebar-source" href="#references">规则与延伸练习</a>
+    </aside>
+    <main id="lesson">
+      <header class="lesson-header">
+        <p class="eyebrow" id="chapter-label"></p>
+        <h1 id="lesson-title"></h1>
+        <p class="introduction" id="lesson-intro"></p>
+        <a id="advanced-link" class="quick-lesson" href="#calculate">进入进阶训练</a>
+      </header>
+      <div class="workbench">
+        <section class="board-area" aria-label="交互棋盘">
+          <div class="board-toolbar">
+            <div id="turn" class="turn"></div>
+            <button id="reset" class="quiet" type="button">重置局面</button>
+          </div>
+          <div id="board" class="board" role="group" aria-label="国际象棋棋盘"></div>
+          <div id="promotion" class="promotion" hidden role="group" aria-label="选择升变棋子"></div>
+          <details class="position"><summary>查看局面 FEN</summary><code id="fen"></code></details>
+        </section>
+        <section class="exercise-area" aria-labelledby="exercise-title">
+          <div class="exercise-nav" id="exercise-nav" aria-label="本课练习"></div>
+          <p class="exercise-kind" id="exercise-kind"></p>
+          <h2 id="exercise-title"></h2>
+          <p id="prompt"></p>
+          <div id="controls"></div>
+          <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+          <div id="aid" class="aid">
+            <button id="hint" type="button" class="quiet">看提示</button>
+            <button id="answer" type="button" class="quiet">看讲解</button>
+          </div>
+          <button id="continue" class="button primary continue" type="button">下一练习</button>
+        </section>
+      </div>
+      <section class="lesson-notes" aria-labelledby="notes-title">
+        <div class="notes-header"><p class="eyebrow">实战笔记</p><h2 id="notes-title"></h2></div>
+        <div id="notes"></div>
+      </section>
+      <footer id="references" class="reference">
+        <h2>规则与延伸练习</h2>
+        <ul>
+          <li><a href="https://handbook.fide.com/chapter/E012023" target="_blank" rel="noopener">FIDE 国际象棋规则</a><span>核对易位、升变、和棋等规则</span></li>
+          <li><a href="https://lichess.org/practice" target="_blank" rel="noopener">Lichess 分主题练习</a><span>补练战术、基本杀法和残局</span></li>
+          <li><a href="https://lichess.org/training/themes" target="_blank" rel="noopener">Lichess 战术题库</a><span>做完本站例题后，看陌生局面</span></li>
+          <li><a href="https://lichess.org/analysis" target="_blank" rel="noopener">Lichess 分析棋盘</a><span>粘贴 FEN，复盘其他候选着法</span></li>
+        </ul>
+        <p>示例为教学局面。练习进度保存在当前浏览器。</p>
+      </footer>
+    </main>
+  </div>
+  <noscript><p>请启用 JavaScript，以使用交互棋盘与练习。</p></noscript>
+</body>
+</html>
